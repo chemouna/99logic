@@ -13,11 +13,12 @@
   (testing "fails for empty list"
     (is (empty? (run* [q] (lastbutoneo q [])))))
   (testing "fails for a one element list"
-    (is (empty? (run* [q] (lastbutoneo q [2])))))
-  (testing "gets before last for a list of length"
-    (is (= [1] (run* [q] (lastbutoneo q [1 2])))))
+    (is (empty? (run* [q] (lastbutoneo q ['x])))))
+  (testing "gets before last for a list of length 2"
+    (is (= ['x] (run* [q] (lastbutoneo q ['x 'y])))))
   (testing "gets before last for a list of length > 2"
-    (is (= [2] (run* [q] (lastbutoneo q [1 2 3]))))))
+    (is (= ['z] (run* [q] (lastbutoneo q ['x 'y 'z 'w]))))))
+
 
 
 
