@@ -19,7 +19,13 @@
   (testing "gets before last for a list of length > 2"
     (is (= ['z] (run* [q] (lastbutoneo q ['x 'y 'z 'w]))))))
 
-
+(deftest test-ktho
+  (testing "fails for a negative k"
+    (is (empty? (run* [q] (ktho q '(1 2 3 4) -1)))))
+  (testing "0 for an empty list"
+    (is (empty? (run* [q] (ktho q [] 2)))))
+  (testing "kth when k < list length"
+    (is (= ['z] (run* [q] (ktho q '[x y z w] 2))))))
 
 
 
